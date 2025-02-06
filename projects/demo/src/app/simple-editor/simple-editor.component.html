@@ -28,6 +28,24 @@
     >
      OrderedList
     </button>
+    <button
+    [ngClass]="{ 'bg-black text-white': editor.isActive('splitlistitem') }"
+   (click)="editor.chain().focus().splitListItem('listItem').run()"
+  >
+    Split list item
+  </button>
+  <button
+  [ngClass]="{ 'bg-black text-white': editor.isActive('sinklistitem') }"
+   (click)="editor.chain().focus().sinkListItem('listItem').run()"
+  >
+    Sink list item
+  </button>
+  <button
+  [ngClass]="{ 'bg-black text-white': editor.isActive('liftlistitem') }"
+   (click)="editor.chain().focus().liftListItem('listItem').run()"
+  >
+    Lift list item
+  </button>
       <button
         class="rounded h-7 w-7 flex justify-center items-center px-1"
         [ngClass]="{ 'bg-black text-white': editor.isActive('heading') }"
