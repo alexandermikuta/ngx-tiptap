@@ -9,6 +9,7 @@ import TextStyle from '@tiptap/extension-text-style';
 import Image from '@tiptap/extension-image'
 import Link from '@tiptap/extension-link'
 import Subscript from '@tiptap/extension-subscript'
+import Superscript from '@tiptap/extension-superscript'
 import { Color }from '@tiptap/extension-color';
 import { TiptapEditorDirective } from 'ngx-tiptap';
 
@@ -30,6 +31,7 @@ export class SimpleEditorComponent implements OnDestroy {
       Color,
       Image,
       Subscript,
+      Superscript,
       Link.configure({
         openOnClick: false,
         autolink: true,

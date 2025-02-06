@@ -44,6 +44,26 @@
         Unset subscript
       </button>
     </div>
+    <div className="button-group">
+      <button
+        (click)="editor.chain().focus().toggleSuperscript().run()"
+        [ngClass]="{ 'bg-black text-white': editor.isActive('superscript') }"
+      >
+        Toggle superscript
+      </button>
+      <button
+        (click)="editor.chain().focus().setSuperscript().run()"
+        [ngClass]="{ 'bg-black text-white': editor.isActive('superscript') }"
+      >
+        Set superscript
+      </button>
+      <button
+        (click)="editor.chain().focus().unsetSuperscript().run()"
+        [ngClass]="{ 'bg-black text-white': editor.isActive('superscript') }"
+      >
+        Unset superscript
+      </button>
+    </div>
     <button
     class="rounded h-7  flex justify-center items-center px-1"
       [ngClass]="{ 'bg-black text-white': editor.isActive('bulletlist') }"
