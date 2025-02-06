@@ -1,4 +1,0 @@
-rm -rf dist/ .angular/
-npm run build
-npm run test:lib
-npm run test:demo
