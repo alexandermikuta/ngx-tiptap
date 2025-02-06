@@ -7,6 +7,7 @@
       value="editor.getAttributes('textStyle').color"
       data-testid="setColor"
     />
+    <button (click)="addImage()">Set image</button>
       <button
       class="rounded h-7 flex justify-center items-center px-1"
       [ngClass]="{ 'bg-black text-white': editor.isActive('blockquote') }"
