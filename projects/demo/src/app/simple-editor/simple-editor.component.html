@@ -24,6 +24,26 @@
     >
       Unset link
     </button>
+    <div className="button-group">
+      <button
+        (click)="editor.chain().focus().toggleSubscript().run()"
+        [ngClass]="{ 'bg-black text-white': editor.isActive('subscript') }"
+      >
+        Toggle subscript
+      </button>
+      <button
+        (click)="editor.chain().focus().setSubscript().run()"
+        [ngClass]="{ 'bg-black text-white': editor.isActive('subscript') }"
+      >
+        Set subscript
+      </button>
+      <button
+        (click)="editor.chain().focus().unsetSubscript().run()"
+        [ngClass]="{ 'bg-black text-white': editor.isActive('subscript') }"
+      >
+        Unset subscript
+      </button>
+    </div>
     <button
     class="rounded h-7  flex justify-center items-center px-1"
       [ngClass]="{ 'bg-black text-white': editor.isActive('bulletlist') }"
