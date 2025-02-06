@@ -1,10 +1,35 @@
 <form>
-  <div class="text-xl mb-2">TipTap</div>
-
-  <div>
-    <div class="border-black border-2 border-b-0 rounded-t-md p-1 flex">
+    <div class="border-black border-2 border-b-0 p-1 flex h-10 w-full">
       <button
-        class="rounded h-7 w-7 flex justify-center items-center"
+      class="rounded h-7 flex justify-center items-center px-1"
+      [ngClass]="{ 'bg-black text-white': editor.isActive('blockquote') }"
+      (click)="editor.chain().focus().toggleBlockquote().run()"
+    >
+     blockquote
+    </button>
+    <button
+    class="rounded h-7  flex justify-center items-center px-1"
+      [ngClass]="{ 'bg-black text-white': editor.isActive('bulletlist') }"
+      (click)="editor.chain().focus().toggleBulletList().run()"
+    >
+     bulletList
+    </button>
+    <button
+
+      [ngClass]="{ 'bg-black text-white': editor.isActive('horizontalrule') }"
+      (click)="editor.chain().focus().setHorizontalRule().run()"
+    >
+    HR
+    </button>
+    <button
+    class="rounded h-7  flex justify-center items-center px-1"
+      [ngClass]="{ 'bg-black text-white': editor.isActive('listitem') }"
+      (click)="editor.chain().focus().toggleOrderedList().run()"
+    >
+     OrderedList
+    </button>
+      <button
+        class="rounded h-7 w-7 flex justify-center items-center px-1"
         [ngClass]="{ 'bg-black text-white': editor.isActive('heading') }"
         (click)="editor.chain().focus().toggleHeading({ level: 1 }).run()"
       >
@@ -14,7 +39,7 @@
         </svg>
       </button>
       <button
-        class="rounded h-7 w-7 flex justify-center items-center ml-1"
+      class="rounded h-7 w-7 flex justify-center items-center px-1"
         [ngClass]="{ 'bg-black text-white': editor.isActive('bold') }"
         (click)="editor.chain().focus().toggleBold().run()"
       >
@@ -26,7 +51,15 @@
         </svg>
       </button>
       <button
-        class="rounded h-7 w-7 flex justify-center items-center ml-1"
+      class="rounded h-7  flex justify-center items-center px-1"
+        [ngClass]="{ 'bg-black text-white': editor.isActive('strike') }"
+        (click)="editor.chain().focus().toggleStrike().run()"
+      >
+       strike
+      </button>
+
+      <button
+
         [ngClass]="{ 'bg-black text-white': editor.isActive('italic') }"
         (click)="editor.chain().focus().toggleItalic().run()"
       >
@@ -36,7 +69,7 @@
         </svg>
       </button>
       <button
-        class="rounded h-7 w-7 flex justify-center items-center ml-1"
+
         [ngClass]="{ 'bg-black text-white': editor.isActive('paragraph') }"
         (click)="editor.chain().focus().setParagraph().run()"
       >
@@ -52,5 +85,6 @@
       [ngModel]="value"
       (ngModelChange)="handleValueChange($event)"
     ></tiptap-editor>
-  </div>
+    <h1>HTML-Output:</h1>
+    <p>{{ value }}</p>
 </form>
