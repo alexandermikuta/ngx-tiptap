@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { Content, Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
 import Placeholder from '@tiptap/extension-placeholder';
+import TextStyle from '@tiptap/extension-text-style';
+import { Color }from '@tiptap/extension-color';
 import { TiptapEditorDirective } from 'ngx-tiptap';
 
 @Component({
@@ -20,6 +22,9 @@ export class SimpleEditorComponent implements OnDestroy {
     extensions: [
       StarterKit,
       Placeholder,
+      TextStyle,
+      Color
+
     ],
     editorProps: {
       attributes: {

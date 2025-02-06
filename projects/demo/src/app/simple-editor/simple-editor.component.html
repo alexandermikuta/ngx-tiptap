@@ -1,5 +1,12 @@
 <form>
     <div class="border-black border-2 border-b-0 p-1 flex h-10 w-full">
+      <input
+      type="color"
+      [ngClass]="{ 'bg-black text-white': editor.isActive('setcolor') }"
+      (input)="editor.chain().focus().setColor(($any($event.target).value)).run()"
+      value="editor.getAttributes('textStyle').color"
+      data-testid="setColor"
+    />
       <button
       class="rounded h-7 flex justify-center items-center px-1"
       [ngClass]="{ 'bg-black text-white': editor.isActive('blockquote') }"
