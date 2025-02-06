@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { Content, Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
+import CharacterCount from '@tiptap/extension-character-count'
 import Placeholder from '@tiptap/extension-placeholder';
 import TextStyle from '@tiptap/extension-text-style';
 import Image from '@tiptap/extension-image'
@@ -22,6 +23,7 @@ import { TiptapEditorDirective } from 'ngx-tiptap';
 export class SimpleEditorComponent implements OnDestroy {
   value: Content = `Beispiel Rich-Text...`;
 
+  characterLimit = 4000
 
   editor = new Editor({
     extensions: [
@@ -32,6 +34,9 @@ export class SimpleEditorComponent implements OnDestroy {
       Image,
       Subscript,
       Superscript,
+      CharacterCount.configure({
+        limit: this.characterLimit,
+      }),
       Link.configure({
         openOnClick: false,
         autolink: true,

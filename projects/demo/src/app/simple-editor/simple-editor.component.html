@@ -160,6 +160,7 @@
       [ngModel]="value"
       (ngModelChange)="handleValueChange($event)"
     ></tiptap-editor>
+    <div>{{editor.storage["characterCount"].characters()}} / {{characterLimit}} characters</div>
     <h1>HTML-Output:</h1>
     <p>{{ value }}</p>
 </form>
