@@ -15,6 +15,15 @@
     >
      blockquote
     </button>
+    <button class="rounded h-7 flex justify-center items-center px-1"
+    [ngClass]="{ 'bg-black text-white': editor.isActive('link') }" (click)="setLink()">Set link</button>
+    <button
+    class="rounded h-7 flex justify-center items-center px-1"
+      [ngClass]="{ 'bg-black text-white': editor.isActive('link') }"
+      (click)="editor.chain().focus().unsetLink().run()"
+    >
+      Unset link
+    </button>
     <button
     class="rounded h-7  flex justify-center items-center px-1"
       [ngClass]="{ 'bg-black text-white': editor.isActive('bulletlist') }"
