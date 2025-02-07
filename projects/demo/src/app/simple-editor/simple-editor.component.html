@@ -174,6 +174,26 @@
         </svg>
       </button>
     </div>
+    <div className="button-group">
+      <button
+        (click)="editor.chain().focus().toggleCode().run()"
+        [ngClass]="{ 'bg-black text-white': editor.isActive('code') }"
+      >
+        Toggle code
+      </button>
+      <button
+        (click)="editor.chain().focus().setCode().run()"
+        [ngClass]="{ 'bg-black text-white': editor.isActive('code') }"
+      >
+        Set code
+      </button>
+      <button
+        (click)="editor.chain().focus().unsetCode().run()"
+        [ngClass]="{ 'bg-black text-white': editor.isActive('code') }"
+      >
+        Unset code
+      </button>
+    </div>
     <div className="button-group" *ngIf="editor.can().undo() || editor.can().redo()">
       <button (click)="editor.chain().focus().undo().run()" *ngIf="editor.can().undo()">
         Undo
