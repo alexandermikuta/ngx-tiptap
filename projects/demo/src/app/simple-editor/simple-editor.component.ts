@@ -11,6 +11,8 @@ import Image from '@tiptap/extension-image'
 import Link from '@tiptap/extension-link'
 import Subscript from '@tiptap/extension-subscript'
 import Superscript from '@tiptap/extension-superscript'
+import AutoJoiner from 'tiptap-extension-auto-joiner'
+import Underline from '@tiptap/extension-underline'
 import { Color }from '@tiptap/extension-color';
 import { TiptapEditorDirective } from 'ngx-tiptap';
 
@@ -28,12 +30,14 @@ export class SimpleEditorComponent implements OnDestroy {
   editor = new Editor({
     extensions: [
       StarterKit,
+      AutoJoiner,
       Placeholder,
       TextStyle,
       Color,
       Image,
       Subscript,
       Superscript,
+      Underline,
       CharacterCount.configure({
         limit: this.characterLimit,
       }),

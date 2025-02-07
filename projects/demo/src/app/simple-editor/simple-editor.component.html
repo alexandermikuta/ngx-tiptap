@@ -26,6 +26,26 @@
     </button>
     <div className="button-group">
       <button
+        [ngClass]="{ 'bg-black text-white': editor.isActive('underline') }"
+        (click)="editor.chain().focus().toggleUnderline().run()"
+      >
+        Toggle underline
+      </button>
+      <button
+      [ngClass]="{ 'bg-black text-white': editor.isActive('underline') }"
+        (click)="editor.chain().focus().setUnderline().run()"
+      >
+        Set underline
+      </button>
+      <button
+      [ngClass]="{ 'bg-black text-white': editor.isActive('underline') }"[ngClass]="{ 'bg-black text-white': editor.isActive('underline') }"
+        (click)="editor.chain().focus().unsetUnderline().run()"
+      >
+        Unset underline
+      </button>
+    </div>
+    <div className="button-group">
+      <button
         (click)="editor.chain().focus().toggleSubscript().run()"
         [ngClass]="{ 'bg-black text-white': editor.isActive('subscript') }"
       >
