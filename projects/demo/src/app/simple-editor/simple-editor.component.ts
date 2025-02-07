@@ -13,6 +13,7 @@ import Subscript from '@tiptap/extension-subscript'
 import Superscript from '@tiptap/extension-superscript'
 import AutoJoiner from 'tiptap-extension-auto-joiner'
 import Underline from '@tiptap/extension-underline'
+import TextAlign from '@tiptap/extension-text-align'
 import { Color }from '@tiptap/extension-color';
 import { TiptapEditorDirective } from 'ngx-tiptap';
 
@@ -23,7 +24,9 @@ import { TiptapEditorDirective } from 'ngx-tiptap';
   styleUrls: ['./simple-editor.component.css'],
 })
 export class SimpleEditorComponent implements OnDestroy {
-  value: Content = `Beispiel Rich-Text...`;
+  value: Content = `<h2>Heading</h2>
+        <p style="text-align: center">first paragraph</p>
+        <p style="text-align: right">second paragraph</p>`;
 
   characterLimit = 4000
 
@@ -38,6 +41,9 @@ export class SimpleEditorComponent implements OnDestroy {
       Subscript,
       Superscript,
       Underline,
+      TextAlign.configure({
+        types: ['heading', 'paragraph'],
+      }),
       CharacterCount.configure({
         limit: this.characterLimit,
       }),
