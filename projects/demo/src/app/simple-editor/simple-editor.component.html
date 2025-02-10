@@ -229,6 +229,18 @@
         Unset code
       </button>
     </div>
+    <div className="button-group">
+      <button
+        (click)="editor.chain().focus().toggleCodeBlock().run()"
+      >
+        Toggle code block
+      </button>
+      <button
+        (click)="editor.chain().focus().setCodeBlock().run()"
+      >
+        Set code block
+      </button>
+    </div>
     <div className="button-group" *ngIf="editor.can().undo() || editor.can().redo()">
       <button (click)="editor.chain().focus().undo().run()" *ngIf="editor.can().undo()">
         Undo

@@ -14,7 +14,12 @@ import Superscript from '@tiptap/extension-superscript'
 import AutoJoiner from 'tiptap-extension-auto-joiner'
 import Underline from '@tiptap/extension-underline'
 import TextAlign from '@tiptap/extension-text-align'
+import Table from '@tiptap/extension-table'
+import TableCell from '@tiptap/extension-table-cell'
+import TableHeader from '@tiptap/extension-table-header'
+import TableRow from '@tiptap/extension-table-row'
 import { Color }from '@tiptap/extension-color';
+import OfficePaste from '@intevation/tiptap-extension-office-paste';
 import { TiptapEditorDirective } from 'ngx-tiptap';
 
 @Component({
@@ -41,9 +46,16 @@ export class SimpleEditorComponent implements OnDestroy {
       Subscript,
       Superscript,
       Underline,
+      OfficePaste,
       TextAlign.configure({
         types: ['heading', 'paragraph'],
       }),
+      Table.configure({
+        resizable: true,
+      }),
+      TableRow,
+      TableHeader,
+      TableCell,
       CharacterCount.configure({
         limit: this.characterLimit,
       }),
