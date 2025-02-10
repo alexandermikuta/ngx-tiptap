@@ -18,13 +18,17 @@ import Table from '@tiptap/extension-table'
 import TableCell from '@tiptap/extension-table-cell'
 import TableHeader from '@tiptap/extension-table-header'
 import TableRow from '@tiptap/extension-table-row'
+import Highlight from '@tiptap/extension-highlight'
 import { Color }from '@tiptap/extension-color';
 import OfficePaste from '@intevation/tiptap-extension-office-paste';
 import { TiptapEditorDirective } from 'ngx-tiptap';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { heroBold, heroItalic, heroPhoto, heroCodeBracket, heroCodeBracketSquare, heroUnderline, heroLink, heroBars3BottomLeft, heroBars3BottomRight, heroBars3 } from '@ng-icons/heroicons/outline';
 
 @Component({
   selector: 'app-simple-editor',
-  imports: [CommonModule, FormsModule, TiptapEditorDirective],
+  imports: [CommonModule, FormsModule, TiptapEditorDirective, NgIcon],
+  providers: [provideIcons({heroBold, heroItalic, heroPhoto, heroCodeBracket, heroCodeBracketSquare, heroUnderline, heroLink, heroBars3BottomLeft, heroBars3BottomRight, heroBars3})],
   templateUrl: './simple-editor.component.html',
   styleUrls: ['./simple-editor.component.css'],
 })
@@ -47,6 +51,7 @@ export class SimpleEditorComponent implements OnDestroy {
       Superscript,
       Underline,
       OfficePaste,
+      Highlight,
       TextAlign.configure({
         types: ['heading', 'paragraph'],
       }),

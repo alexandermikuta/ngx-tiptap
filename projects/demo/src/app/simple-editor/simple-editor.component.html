@@ -7,7 +7,13 @@
       value="editor.getAttributes('textStyle').color"
       data-testid="setColor"
     />
-    <button (click)="addImage()">Set image</button>
+    <button
+    (click)="editor.chain().focus().toggleHighlight().run()"
+    [ngClass]="{ 'bg-black text-white': editor.isActive('isActive') }"
+  >
+    Toggle highlight
+  </button>
+    <button (click)="addImage()"><ng-icon name="heroPhoto">Image</ng-icon></button>
       <button
       class="rounded h-7 flex justify-center items-center px-1"
       [ngClass]="{ 'bg-black text-white': editor.isActive('blockquote') }"
@@ -16,32 +22,13 @@
      blockquote
     </button>
     <button class="rounded h-7 flex justify-center items-center px-1"
-    [ngClass]="{ 'bg-black text-white': editor.isActive('link') }" (click)="setLink()">Set link</button>
-    <button
-    class="rounded h-7 flex justify-center items-center px-1"
-      [ngClass]="{ 'bg-black text-white': editor.isActive('link') }"
-      (click)="editor.chain().focus().unsetLink().run()"
-    >
-      Unset link
-    </button>
+    [ngClass]="{ 'bg-black text-white': editor.isActive('link') }" (click)="setLink()"><ng-icon name="heroLink">Link</ng-icon></button>
     <div className="button-group">
       <button
         [ngClass]="{ 'bg-black text-white': editor.isActive('underline') }"
         (click)="editor.chain().focus().toggleUnderline().run()"
       >
-        Toggle underline
-      </button>
-      <button
-      [ngClass]="{ 'bg-black text-white': editor.isActive('underline') }"
-        (click)="editor.chain().focus().setUnderline().run()"
-      >
-        Set underline
-      </button>
-      <button
-      [ngClass]="{ 'bg-black text-white': editor.isActive('underline') }"[ngClass]="{ 'bg-black text-white': editor.isActive('underline') }"
-        (click)="editor.chain().focus().unsetUnderline().run()"
-      >
-        Unset underline
+      <ng-icon name="heroCodeBracketSquare">Underline</ng-icon>
       </button>
     </div>
     <div className="button-group">
@@ -148,12 +135,7 @@
         [ngClass]="{ 'bg-black text-white': editor.isActive('bold') }"
         (click)="editor.chain().focus().toggleBold().run()"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-          <path fill="none" d="M0 0h24v24H0z" />
-          <path
-            d="M8 11h4.5a2.5 2.5 0 1 0 0-5H8v5zm10 4.5a4.5 4.5 0 0 1-4.5 4.5H6V4h6.5a4.5 4.5 0 0 1 3.256 7.606A4.498 4.498 0 0 1 18 15.5zM8 13v5h5.5a2.5 2.5 0 1 0 0-5H8z"
-          />
-        </svg>
+        <ng-icon name="heroBold">Bold</ng-icon>
       </button>
       <button
       class="rounded h-7  flex justify-center items-center px-1"
@@ -164,14 +146,10 @@
       </button>
 
       <button
-
         [ngClass]="{ 'bg-black text-white': editor.isActive('italic') }"
         (click)="editor.chain().focus().toggleItalic().run()"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-          <path fill="none" d="M0 0h24v24H0z" />
-          <path d="M15 20H7v-2h2.927l2.116-12H9V4h8v2h-2.927l-2.116 12H15z" />
-        </svg>
+      <ng-icon name="heroItalic">Italic</ng-icon>
       </button>
       <button
 
@@ -188,25 +166,17 @@
       <button
         (click)="editor.chain().focus().setTextAlign('left').run()"
       >
-        Left
+      <ng-icon name="heroBars3BottomLeft">Left</ng-icon>
       </button>
       <button
         (click)="editor.chain().focus().setTextAlign('center').run()"
       >
-        Center
+      <ng-icon name="heroBars3">Center</ng-icon>
       </button>
       <button
         (click)="editor.chain().focus().setTextAlign('right').run()"
       >
-        Right
-      </button>
-      <button
-        (click)="editor.chain().focus().setTextAlign('justify').run()"
-      >
-        Justify
-      </button>
-      <button (click)="editor.chain().focus().unsetTextAlign().run()">
-        Unset text align
+      <ng-icon name="heroBars3BottomRight">Right</ng-icon>
       </button>
     </div>
     <div className="button-group">
@@ -214,31 +184,14 @@
         (click)="editor.chain().focus().toggleCode().run()"
         [ngClass]="{ 'bg-black text-white': editor.isActive('code') }"
       >
-        Toggle code
-      </button>
-      <button
-        (click)="editor.chain().focus().setCode().run()"
-        [ngClass]="{ 'bg-black text-white': editor.isActive('code') }"
-      >
-        Set code
-      </button>
-      <button
-        (click)="editor.chain().focus().unsetCode().run()"
-        [ngClass]="{ 'bg-black text-white': editor.isActive('code') }"
-      >
-        Unset code
+      <ng-icon name="heroCodeBracket">Code</ng-icon>
       </button>
     </div>
     <div className="button-group">
       <button
         (click)="editor.chain().focus().toggleCodeBlock().run()"
       >
-        Toggle code block
-      </button>
-      <button
-        (click)="editor.chain().focus().setCodeBlock().run()"
-      >
-        Set code block
+      <ng-icon name="heroCodeBracketSquare">Code Block</ng-icon>
       </button>
     </div>
     <div className="button-group" *ngIf="editor.can().undo() || editor.can().redo()">
