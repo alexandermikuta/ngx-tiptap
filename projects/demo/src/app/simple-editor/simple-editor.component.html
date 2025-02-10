@@ -11,24 +11,28 @@
     (click)="editor.chain().focus().toggleHighlight().run()"
     [ngClass]="{ 'bg-black text-white': editor.isActive('isActive') }"
   >
-    highlight
+  <ng-icon name="remixMarkPenLine">Highlight</ng-icon>
   </button>
-    <button (click)="addImage()"><ng-icon name="heroPhoto">Image</ng-icon></button>
-      <button
+    <button (click)="addImage()">
+      <ng-icon name="remixFileImageLine">Image</ng-icon>
+    </button>
+    <button
       class="rounded h-7 flex justify-center items-center px-1"
       [ngClass]="{ 'bg-black text-white': editor.isActive('blockquote') }"
       (click)="editor.chain().focus().toggleBlockquote().run()"
     >
-     blockquote
-    </button>
+    <ng-icon name="remixQuoteText">Blockquote</ng-icon>
+  </button>
     <button class="rounded h-7 flex justify-center items-center px-1"
-    [ngClass]="{ 'bg-black text-white': editor.isActive('link') }" (click)="setLink()"><ng-icon name="heroLink">Link</ng-icon></button>
+    [ngClass]="{ 'bg-black text-white': editor.isActive('link') }" (click)="setLink()">
+    <ng-icon name="remixLink">Link</ng-icon>
+  </button>
     <span className="button-group">
       <button
         [ngClass]="{ 'bg-black text-white': editor.isActive('underline') }"
         (click)="editor.chain().focus().toggleUnderline().run()"
       >
-      <ng-icon name="heroCodeBracketSquare">Underline</ng-icon>
+      <ng-icon name="remixUnderline">Underline</ng-icon>
       </button>
     </span>
     <span className="button-group">
@@ -36,7 +40,7 @@
         (click)="editor.chain().focus().toggleSubscript().run()"
         [ngClass]="{ 'bg-black text-white': editor.isActive('subscript') }"
       >
-        Subscript
+      <ng-icon name="remixSubscript">Subscript</ng-icon>
       </button>
     </span>
     <span className="button-group">
@@ -44,7 +48,7 @@
         (click)="editor.chain().focus().toggleSuperscript().run()"
         [ngClass]="{ 'bg-black text-white': editor.isActive('superscript') }"
       >
-        Superscript
+      <ng-icon name="remixSuperscript">Superscript</ng-icon>
       </button>
     </span>
     <button
@@ -58,63 +62,57 @@
       [ngClass]="{ 'bg-black text-white': editor.isActive('listitem') }"
       (click)="editor.chain().focus().toggleOrderedList().run()"
     >
-    <ng-icon name="heroListBullet">List</ng-icon>
+    <ng-icon name="remixListUnordered">List</ng-icon>
     </button>
       <button
         class="rounded h-7 w-7 flex justify-center items-center px-1"
         [ngClass]="{ 'bg-black text-white': editor.isActive('heading') }"
-        (click)="editor.chain().focus().toggleHeading({ level: 2 }).run()"
+        (click)="editor.chain().focus().toggleHeading({ level: 1 }).run()"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-          <path fill="none" d="M0 0H24V24H0z" />
-          <path d="M13 20h-2v-7H4v7H2V4h2v7h7V4h2v16zm8-12v12h-2v-9.796l-2 .536V8.67L19.5 8H21z" />
-        </svg>
+      <ng-icon name="remixH1">H1</ng-icon>
       </button>
       <button
       class="rounded h-7 w-7 flex justify-center items-center px-1"
         [ngClass]="{ 'bg-black text-white': editor.isActive('bold') }"
         (click)="editor.chain().focus().toggleBold().run()"
       >
-        <ng-icon name="heroBold">Bold</ng-icon>
+        <ng-icon name="remixBold">Bold</ng-icon>
       </button>
       <button
       class="rounded h-7  flex justify-center items-center px-1"
         [ngClass]="{ 'bg-black text-white': editor.isActive('strike') }"
         (click)="editor.chain().focus().toggleStrike().run()"
       >
-      <ng-icon name=" heroStrikethrough">Strikethrough</ng-icon>
+      <ng-icon name="remixStrikethrough">Strikethrough</ng-icon>
       </button>
       <button
         [ngClass]="{ 'bg-black text-white': editor.isActive('italic') }"
         (click)="editor.chain().focus().toggleItalic().run()"
       >
-      <ng-icon name="heroItalic">Italic</ng-icon>
+      <ng-icon name="remixItalic">Italic</ng-icon>
       </button>
       <button
         [ngClass]="{ 'bg-black text-white': editor.isActive('paragraph') }"
         (click)="editor.chain().focus().setParagraph().run()"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-          <path fill="none" d="M0 0h24v24H0z" />
-          <path d="M12 6v15h-2v-5a6 6 0 1 1 0-12h10v2h-3v15h-2V6h-3zm-2 0a4 4 0 1 0 0 8V6z" />
-        </svg>
+      <ng-icon name="remixParagraph">Paragraph</ng-icon>
       </button>
 
     <span className="button-group">
       <button
         (click)="editor.chain().focus().setTextAlign('left').run()"
       >
-      <ng-icon name="heroBars3BottomLeft">Left</ng-icon>
+      <ng-icon name="remixAlignLeft">Left</ng-icon>
       </button>
       <button
         (click)="editor.chain().focus().setTextAlign('center').run()"
       >
-      <ng-icon name="heroBars3">Center</ng-icon>
+      <ng-icon name="remixAlignCenter">Center</ng-icon>
       </button>
       <button
         (click)="editor.chain().focus().setTextAlign('right').run()"
       >
-      <ng-icon name="heroBars3BottomRight">Right</ng-icon>
+      <ng-icon name="remixAlignRight">Right</ng-icon>
       </button>
     </span>
     <span className="button-group">
@@ -122,22 +120,22 @@
         (click)="editor.chain().focus().toggleCode().run()"
         [ngClass]="{ 'bg-black text-white': editor.isActive('code') }"
       >
-      <ng-icon name="heroCodeBracket">Code</ng-icon>
+      <ng-icon name="remixCodeLine">Code</ng-icon>
       </button>
     </span>
     <span className="button-group">
       <button
         (click)="editor.chain().focus().toggleCodeBlock().run()"
       >
-      <ng-icon name="heroCodeBracketSquare">Code Block</ng-icon>
+      <ng-icon name="remixCodeBlock">Code Block</ng-icon>
       </button>
     </span>
     <span className="button-group" *ngIf="editor.can().undo() || editor.can().redo()">
       <button (click)="editor.chain().focus().undo().run()" *ngIf="editor.can().undo()">
-        Undo
+        <ng-icon name="remixReplyFill">Undo</ng-icon>
       </button>
       <button (click)="editor.chain().focus().redo().run()" *ngIf="editor.can().redo()">
-        Redo
+        <ng-icon name="remixRepeatFill">Redo</ng-icon>
       </button>
     </span>
   </span>

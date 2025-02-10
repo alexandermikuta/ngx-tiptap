@@ -30,7 +30,7 @@
     "@angular/ssr": "^19.0.0",
     "@intevation/tiptap-extension-office-paste": "^0.0.4",
     "@ng-icons/core": "^30.2.0",
-    "@ng-icons/heroicons": "^30.2.0",
+    "@ng-icons/remixicon": "^30.2.0",
     "@tiptap/extension-character-count": "^2.11.5",
     "@tiptap/extension-color": "^2.11.5",
     "@tiptap/extension-highlight": "^2.11.5",

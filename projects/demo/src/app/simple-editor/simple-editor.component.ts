@@ -23,12 +23,11 @@ import { Color }from '@tiptap/extension-color';
 import OfficePaste from '@intevation/tiptap-extension-office-paste';
 import { TiptapEditorDirective } from 'ngx-tiptap';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { heroBold, heroItalic, heroStrikethrough, heroPhoto, heroListBullet, heroCodeBracket, heroCodeBracketSquare, heroUnderline, heroLink, heroBars3BottomLeft, heroBars3BottomRight, heroBars3 } from '@ng-icons/heroicons/outline';
-
+import {  remixListUnordered, remixLink, remixParagraph, remixFileImageLine, remixBold, remixItalic, remixUnderline, remixMarkPenLine, remixH1, remixSubscript, remixSuperscript, remixAlignCenter, remixAlignLeft, remixAlignRight, remixQuoteText, remixReplyFill, remixRepeatFill, remixCodeLine, remixCodeBlock, remixStrikethrough } from '@ng-icons/remixicon';
 @Component({
   selector: 'app-simple-editor',
   imports: [CommonModule, FormsModule, TiptapEditorDirective, NgIcon],
-  providers: [provideIcons({heroBold, heroItalic,  heroStrikethrough, heroPhoto, heroListBullet, heroCodeBracket, heroCodeBracketSquare, heroUnderline, heroLink, heroBars3BottomLeft, heroBars3BottomRight, heroBars3})],
+  providers: [provideIcons({remixListUnordered, remixParagraph, remixFileImageLine, remixMarkPenLine, remixH1, remixSubscript, remixSuperscript, remixAlignCenter, remixAlignLeft, remixAlignRight, remixQuoteText, remixReplyFill, remixRepeatFill, remixCodeLine, remixCodeBlock, remixBold, remixItalic,  remixStrikethrough, remixUnderline, remixLink })],
   templateUrl: './simple-editor.component.html',
   styleUrls: ['./simple-editor.component.css'],
 })
