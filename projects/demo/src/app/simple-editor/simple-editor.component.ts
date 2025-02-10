@@ -23,12 +23,12 @@ import { Color }from '@tiptap/extension-color';
 import OfficePaste from '@intevation/tiptap-extension-office-paste';
 import { TiptapEditorDirective } from 'ngx-tiptap';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { heroBold, heroItalic, heroPhoto, heroCodeBracket, heroCodeBracketSquare, heroUnderline, heroLink, heroBars3BottomLeft, heroBars3BottomRight, heroBars3 } from '@ng-icons/heroicons/outline';
+import { heroBold, heroItalic, heroPhoto, heroListBullet, heroCodeBracket, heroCodeBracketSquare, heroUnderline, heroLink, heroBars3BottomLeft, heroBars3BottomRight, heroBars3 } from '@ng-icons/heroicons/outline';
 
 @Component({
   selector: 'app-simple-editor',
   imports: [CommonModule, FormsModule, TiptapEditorDirective, NgIcon],
-  providers: [provideIcons({heroBold, heroItalic, heroPhoto, heroCodeBracket, heroCodeBracketSquare, heroUnderline, heroLink, heroBars3BottomLeft, heroBars3BottomRight, heroBars3})],
+  providers: [provideIcons({heroBold, heroItalic, heroPhoto, heroListBullet, heroCodeBracket, heroCodeBracketSquare, heroUnderline, heroLink, heroBars3BottomLeft, heroBars3BottomRight, heroBars3})],
   templateUrl: './simple-editor.component.html',
   styleUrls: ['./simple-editor.component.css'],
 })

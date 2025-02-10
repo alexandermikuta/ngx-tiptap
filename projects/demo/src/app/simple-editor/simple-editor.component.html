@@ -72,13 +72,6 @@
       </button>
     </div>
     <button
-    class="rounded h-7  flex justify-center items-center px-1"
-      [ngClass]="{ 'bg-black text-white': editor.isActive('bulletlist') }"
-      (click)="editor.chain().focus().toggleBulletList().run()"
-    >
-     bulletList
-    </button>
-    <button
 
       [ngClass]="{ 'bg-black text-white': editor.isActive('horizontalrule') }"
       (click)="editor.chain().focus().setHorizontalRule().run()"
@@ -90,36 +83,8 @@
       [ngClass]="{ 'bg-black text-white': editor.isActive('listitem') }"
       (click)="editor.chain().focus().toggleOrderedList().run()"
     >
-     OrderedList
+    <ng-icon name="heroListBullet">List</ng-icon>
     </button>
-    <button
-    [ngClass]="{ 'bg-black text-white': editor.isActive('splitlistitem') }"
-   (click)="editor.chain().focus().splitListItem('listItem').run()"
-  >
-    Split list item
-  </button>
-  <button
-  [ngClass]="{ 'bg-black text-white': editor.isActive('sinklistitem') }"
-   (click)="editor.chain().focus().sinkListItem('listItem').run()"
-  >
-    Sink list item
-  </button>
-  <button
-  [ngClass]="{ 'bg-black text-white': editor.isActive('liftlistitem') }"
-   (click)="editor.chain().focus().liftListItem('listItem').run()"
-  >
-    Lift list item
-  </button>
-      <button
-        class="rounded h-7 w-7 flex justify-center items-center px-1"
-        [ngClass]="{ 'bg-black text-white': editor.isActive('heading') }"
-        (click)="editor.chain().focus().toggleHeading({ level: 1 }).run()"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-          <path fill="none" d="M0 0H24V24H0z" />
-          <path d="M13 20h-2v-7H4v7H2V4h2v7h7V4h2v16zm8-12v12h-2v-9.796l-2 .536V8.67L19.5 8H21z" />
-        </svg>
-      </button>
       <button
         class="rounded h-7 w-7 flex justify-center items-center px-1"
         [ngClass]="{ 'bg-black text-white': editor.isActive('heading') }"
