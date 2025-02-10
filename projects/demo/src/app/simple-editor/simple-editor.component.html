@@ -1,5 +1,5 @@
 <form>
-    <div class="border-black border-2 border-b-0 p-1 flex h-10 w-full">
+    <span class="border-black border-2 border-b-0 p-1 flex h-10 w-full">
       <input
       type="color"
       [ngClass]="{ 'bg-black text-white': editor.isActive('setcolor') }"
@@ -11,7 +11,7 @@
     (click)="editor.chain().focus().toggleHighlight().run()"
     [ngClass]="{ 'bg-black text-white': editor.isActive('isActive') }"
   >
-    Toggle highlight
+    highlight
   </button>
     <button (click)="addImage()"><ng-icon name="heroPhoto">Image</ng-icon></button>
       <button
@@ -23,56 +23,31 @@
     </button>
     <button class="rounded h-7 flex justify-center items-center px-1"
     [ngClass]="{ 'bg-black text-white': editor.isActive('link') }" (click)="setLink()"><ng-icon name="heroLink">Link</ng-icon></button>
-    <div className="button-group">
+    <span className="button-group">
       <button
         [ngClass]="{ 'bg-black text-white': editor.isActive('underline') }"
         (click)="editor.chain().focus().toggleUnderline().run()"
       >
       <ng-icon name="heroCodeBracketSquare">Underline</ng-icon>
       </button>
-    </div>
-    <div className="button-group">
+    </span>
+    <span className="button-group">
       <button
         (click)="editor.chain().focus().toggleSubscript().run()"
         [ngClass]="{ 'bg-black text-white': editor.isActive('subscript') }"
       >
-        Toggle subscript
+        Subscript
       </button>
-      <button
-        (click)="editor.chain().focus().setSubscript().run()"
-        [ngClass]="{ 'bg-black text-white': editor.isActive('subscript') }"
-      >
-        Set subscript
-      </button>
-      <button
-        (click)="editor.chain().focus().unsetSubscript().run()"
-        [ngClass]="{ 'bg-black text-white': editor.isActive('subscript') }"
-      >
-        Unset subscript
-      </button>
-    </div>
-    <div className="button-group">
+    </span>
+    <span className="button-group">
       <button
         (click)="editor.chain().focus().toggleSuperscript().run()"
         [ngClass]="{ 'bg-black text-white': editor.isActive('superscript') }"
       >
-        Toggle superscript
+        Superscript
       </button>
-      <button
-        (click)="editor.chain().focus().setSuperscript().run()"
-        [ngClass]="{ 'bg-black text-white': editor.isActive('superscript') }"
-      >
-        Set superscript
-      </button>
-      <button
-        (click)="editor.chain().focus().unsetSuperscript().run()"
-        [ngClass]="{ 'bg-black text-white': editor.isActive('superscript') }"
-      >
-        Unset superscript
-      </button>
-    </div>
+    </span>
     <button
-
       [ngClass]="{ 'bg-black text-white': editor.isActive('horizontalrule') }"
       (click)="editor.chain().focus().setHorizontalRule().run()"
     >
@@ -107,9 +82,8 @@
         [ngClass]="{ 'bg-black text-white': editor.isActive('strike') }"
         (click)="editor.chain().focus().toggleStrike().run()"
       >
-       strike
+      <ng-icon name=" heroStrikethrough">Strikethrough</ng-icon>
       </button>
-
       <button
         [ngClass]="{ 'bg-black text-white': editor.isActive('italic') }"
         (click)="editor.chain().focus().toggleItalic().run()"
@@ -117,7 +91,6 @@
       <ng-icon name="heroItalic">Italic</ng-icon>
       </button>
       <button
-
         [ngClass]="{ 'bg-black text-white': editor.isActive('paragraph') }"
         (click)="editor.chain().focus().setParagraph().run()"
       >
@@ -126,8 +99,8 @@
           <path d="M12 6v15h-2v-5a6 6 0 1 1 0-12h10v2h-3v15h-2V6h-3zm-2 0a4 4 0 1 0 0 8V6z" />
         </svg>
       </button>
-    </div>
-    <div className="button-group">
+
+    <span className="button-group">
       <button
         (click)="editor.chain().focus().setTextAlign('left').run()"
       >
@@ -143,30 +116,31 @@
       >
       <ng-icon name="heroBars3BottomRight">Right</ng-icon>
       </button>
-    </div>
-    <div className="button-group">
+    </span>
+    <span className="button-group">
       <button
         (click)="editor.chain().focus().toggleCode().run()"
         [ngClass]="{ 'bg-black text-white': editor.isActive('code') }"
       >
       <ng-icon name="heroCodeBracket">Code</ng-icon>
       </button>
-    </div>
-    <div className="button-group">
+    </span>
+    <span className="button-group">
       <button
         (click)="editor.chain().focus().toggleCodeBlock().run()"
       >
       <ng-icon name="heroCodeBracketSquare">Code Block</ng-icon>
       </button>
-    </div>
-    <div className="button-group" *ngIf="editor.can().undo() || editor.can().redo()">
+    </span>
+    <span className="button-group" *ngIf="editor.can().undo() || editor.can().redo()">
       <button (click)="editor.chain().focus().undo().run()" *ngIf="editor.can().undo()">
         Undo
       </button>
       <button (click)="editor.chain().focus().redo().run()" *ngIf="editor.can().redo()">
         Redo
       </button>
-    </div>
+    </span>
+  </span>
     <tiptap-editor
       [editor]="editor"
       name="simple-editor"
