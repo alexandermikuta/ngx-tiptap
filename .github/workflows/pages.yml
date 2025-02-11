@@ -30,12 +30,17 @@ jobs:
           node-version: ${{env.NODE_VERSION}}
           cache: npm
 
+      - name: set NPM config
+        run: |
+          npm config set "@tiptap-pro:registry" https://registry.tiptap.dev/
+          npm config set "//registry.tiptap.dev/:_authToken" ${{ secrets.NPM_TOKEN }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: NPM Install
         run: npm ci
-
         env:
           CYPRESS_INSTALL_BINARY: 0
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build Package
         run: npm run build
