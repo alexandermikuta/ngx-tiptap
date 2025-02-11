@@ -208,7 +208,8 @@ export class SimpleEditorComponent implements OnDestroy {
   }
 
   handleValueChange(value: Content): void {
-    this.value = value as Content;
+    this.editor.commands.setContent(value);
+    this.value = value
   }
 
   ngOnDestroy(): void {

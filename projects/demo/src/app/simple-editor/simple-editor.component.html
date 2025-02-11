@@ -142,10 +142,11 @@
     <tiptap-editor
       [editor]="editor"
       name="simple-editor"
-      [ngModel]="value"
+      [(ngModel)]="value"
       (ngModelChange)="handleValueChange($event)"
+
     ></tiptap-editor>
     <div>{{editor.storage["characterCount"].characters()}} / {{characterLimit}} characters</div>
     <h1>HTML-Output:</h1>
-    <textarea class="w-full border-black border-2" cols="50" rows="10" autocomplete="off" (keyup)="handleValueChange(($any($event.target).value))">{{value}}</textarea>
+    <textarea name="htmlArea" [ngModelOptions]="{standalone: true}" [ngModel]="value" (ngModelChange)="handleValueChange($event)" class="w-full border-black border-2" cols="50" rows="10" autocomplete="off" (keyup)="editor.commands.setContent(($any($event.target).value))">{{value}}</textarea>
 </form>
