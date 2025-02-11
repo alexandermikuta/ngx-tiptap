@@ -30,6 +30,9 @@ jobs:
           node-version: ${{env.NODE_VERSION}}
           cache: npm
 
+      - name: Authenticate with private NPM package
+        run: echo "@tiptap-pro:registry=https://registry.tiptap.dev/\n//registry.tiptap.dev/:_authToken=${{ secrets.TIPTAP_NPM_TOKEN }}" > ~/.npmrc
+
       - name: NPM Install
         run: npm ci
         env:

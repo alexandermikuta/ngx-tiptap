@@ -21,6 +21,7 @@ import TableRow from '@tiptap/extension-table-row'
 import Highlight from '@tiptap/extension-highlight'
 import { Color }from '@tiptap/extension-color';
 import OfficePaste from '@intevation/tiptap-extension-office-paste';
+import FileHandler from '@tiptap-pro/extension-file-handler'
 import { TiptapEditorDirective } from 'ngx-tiptap';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import {  remixListUnordered, remixLink, remixParagraph, remixFileImageLine, remixBold, remixItalic, remixUnderline, remixMarkPenLine, remixH1, remixSubscript, remixSuperscript, remixAlignCenter, remixAlignLeft, remixAlignRight, remixQuoteText, remixReplyFill, remixRepeatFill, remixCodeLine, remixCodeBlock, remixStrikethrough } from '@ng-icons/remixicon';
@@ -32,9 +33,7 @@ import {  remixListUnordered, remixLink, remixParagraph, remixFileImageLine, rem
   styleUrls: ['./simple-editor.component.css'],
 })
 export class SimpleEditorComponent implements OnDestroy {
-  value: Content = `<h2>Heading</h2>
-        <p style="text-align: center">first paragraph</p>
-        <p style="text-align: right">second paragraph</p>`;
+  value: Content = ``;
 
   characterLimit = 4000
 
@@ -122,6 +121,48 @@ export class SimpleEditorComponent implements OnDestroy {
           }
         },
 
+      }),
+      FileHandler.configure({
+        allowedMimeTypes: ['image/png', 'image/jpeg', 'image/gif', 'image/webp'],
+        onDrop: (currentEditor, files, pos) => {
+          files.forEach(file => {
+            const fileReader = new FileReader()
+
+            fileReader.readAsDataURL(file)
+            fileReader.onload = () => {
+              currentEditor.chain().insertContentAt(pos, {
+                type: 'image',
+                attrs: {
+                  src: fileReader.result,
+                },
+              }).focus().run()
+            }
+          })
+        },
+        onPaste: (currentEditor, files, htmlContent) => {
+          files.forEach(file => {
+            if (htmlContent) {
+              // if there is htmlContent, stop manual insertion & let other extensions handle insertion via inputRule
+              // you could extract the pasted file from this url string and upload it to a server for example
+              console.log(htmlContent) // eslint-disable-line no-console
+              return false
+            }
+
+            const fileReader = new FileReader()
+
+            fileReader.readAsDataURL(file)
+            fileReader.onload = () => {
+              currentEditor.chain().insertContentAt(currentEditor.state.selection.anchor, {
+                type: 'image',
+                attrs: {
+                  src: fileReader.result,
+                },
+              }).focus().run()
+            }
+
+            return;
+          })
+        },
       }),
     ],
     editorProps: {
