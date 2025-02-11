@@ -30,17 +30,12 @@ jobs:
           node-version: ${{env.NODE_VERSION}}
           cache: npm
 
-      - name: Authenticate with private NPM package
-        run: |
-          npm config set "@tiptap-pro:registry" https://registry.tiptap.dev/
-          npm config set strict-ssl false
-          npm config set "//registry.tiptap.dev/:_authToken" ${{ env.TIPTAP_NPM_TOKEN }}
-
-
       - name: NPM Install
         run: npm ci
+
         env:
           CYPRESS_INSTALL_BINARY: 0
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build Package
         run: npm run build
