@@ -140,7 +140,7 @@ export class SimpleEditorComponent implements OnDestroy {
           })
         },
         onPaste: (currentEditor, files, htmlContent) => {
-          files.forEach(file => {
+          files.forEach((file: any) => {
             if (htmlContent) {
               // if there is htmlContent, stop manual insertion & let other extensions handle insertion via inputRule
               // you could extract the pasted file from this url string and upload it to a server for example
@@ -208,7 +208,7 @@ export class SimpleEditorComponent implements OnDestroy {
   }
 
   handleValueChange(value: Content): void {
-    this.value = value;
+    this.value = value as Content;
   }
 
   ngOnDestroy(): void {

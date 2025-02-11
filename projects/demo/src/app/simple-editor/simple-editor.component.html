@@ -147,5 +147,5 @@
     ></tiptap-editor>
     <div>{{editor.storage["characterCount"].characters()}} / {{characterLimit}} characters</div>
     <h1>HTML-Output:</h1>
-    <p>{{ value }}</p>
+    <textarea class="w-full border-black border-2" cols="50" rows="10" autocomplete="off" (keyup)="handleValueChange(($any($event.target).value))">{{value}}</textarea>
 </form>
