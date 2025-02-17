@@ -4,7 +4,7 @@
       type="color"
       [ngClass]="{ 'bg-black text-white': editor.isActive('setcolor') }"
       (input)="editor.chain().focus().setColor(($any($event.target).value)).run()"
-      value="editor.getAttributes('textStyle').color"
+      [attr.value]="editor.getAttributes('textStyle')['color']"
       data-testid="setColor"
     />
     <button
@@ -148,5 +148,5 @@
     ></tiptap-editor>
     <div>{{editor.storage["characterCount"].characters()}} / {{characterLimit}} characters</div>
     <h1>HTML-Output:</h1>
-    <textarea name="htmlArea" [ngModelOptions]="{standalone: true}" [ngModel]="value" (ngModelChange)="handleValueChange($event)" class="w-full border-black border-2" cols="50" rows="10" autocomplete="off" (keyup)="editor.commands.setContent(($any($event.target).value))">{{value}}</textarea>
+    <textarea name="htmlArea" [ngModelOptions]="{standalone: true}" [ngModel]="value" (ngModelChange)="handleHtmlChange($event)" class="w-full border-black border-2" cols="50" rows="10" autocomplete="off" (keyup)="editor.commands.setContent(($any($event.target).value))">{{value}}</textarea>
 </form>

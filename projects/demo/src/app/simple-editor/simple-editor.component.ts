@@ -42,6 +42,7 @@ export class SimpleEditorComponent implements OnDestroy {
       StarterKit,
       AutoJoiner,
       Placeholder,
+      Highlight.configure({multicolor: true}).extend({ priority: 1000 }),
       TextStyle,
       Color,
       Image,
@@ -49,7 +50,6 @@ export class SimpleEditorComponent implements OnDestroy {
       Superscript,
       Underline,
       OfficePaste,
-      Highlight,
       TextAlign.configure({
         types: ['heading', 'paragraph'],
       }),
@@ -171,6 +171,9 @@ export class SimpleEditorComponent implements OnDestroy {
         spellCheck: 'false',
       },
     },
+    parseOptions: {
+      preserveWhitespace: 'full'
+    }
   });
 
   public addImage = () => {
@@ -208,8 +211,15 @@ export class SimpleEditorComponent implements OnDestroy {
   }
 
   handleValueChange(value: Content): void {
-    this.editor.commands.setContent(value);
-    this.value = value
+    // this.value = value
+  }
+
+  handleHtmlChange(value: Content): void {
+    // let html = this.editor.getHTML();
+    // if (html !== value) {
+    //   this.editor.commands.setContent(value);
+    //   this.value = value
+    // }
   }
 
   ngOnDestroy(): void {
